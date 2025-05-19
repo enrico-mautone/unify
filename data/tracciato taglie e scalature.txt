@@ -1,0 +1,29 @@
+
+tracciato taglie
+
+tipo record    pic x. (fisso "C")    KEY
+codice         pic xxx.              ''
+
+taglie         pic xxx  (ripetuto 26 volte) 
+
+C;21 ; 33;  -; 34;  -; 35;  -; 36;  -; 37;  -; 38;  -; 39;  -; 40;  -; 41;  -; 42;  -; 43;  -; 44;  -; 45;  -;
+
+
+
+
+
+
+Tracciato raggruppamento taglie (scalature).
+
+tipo record                      pic x. (fisso "J")     KEY
+codice                           pic xxx.                ''
+codice calzata                   pic xxx.                ''
+
+
+posizione raggruppamento         pic 999  (ripetuto 26 volte) 
+FILLER                           PIC XXX.
+
+
+J;010;21    ;  4;  4;  4;  4;  6;  6;  8;  8; 10; 10; 12; 12; 14; 14; 16; 16; 19; 19; 19; 26; 26; 26; 26; 26; 26; 26;I  ;
+
+ 

@@ -1,0 +1,30 @@
+     *--------------------------------------- recapiti
+ 
+ chiave      03 A2RTPRK            PIC X.      tipo record (sempre "A")
+   ''        03 A2RCONTO           PIC 9(5).   codice cliente/fornitore ( da anagrafica)
+   ''        03 A2RTPRECAP         PIC 99.     tipo recapito (vedi sotto)
+   ''        03 A2RDESCRTEL        PIC X(20).  codice del recapito
+
+
+           03 A2RTELEFONO        pic x(60).  telefono/email/ ecc.ecc. dipende dal tipo            
+           03 A2RNOME                  PIC X(40). ragione sociale
+           03 A2RBMP                   PIC X(20). non usato
+           03 A2RRASO                  PIC X(40). ragione sociale estenzione
+           03 A2RIND                   PIC X(40). indirizzo
+           03 A2RCAP                   PIC X(5). cap
+           03 A2RCITTA                 PIC X(33). citta'
+           03 A2RPROV                  PIC XX.  provincia
+           03 A2RNAZIONE               PIC X(4). nazione
+           03 A2RLOC2                  PIC X(40). etensione localita'
+
+
+  
+      ***************************************************************
+      *  A2RTPRK     'A'  FISSO
+      *  TIPI RECORD:
+      *  A2RTPRECAP  '00' TELEFONO ESTERNO
+      *              '10' FAX ESTERNO
+      *              '20' INTERNET SITO
+      *              '30' INTERNET E-MAIL
+      *              '50' INDIRIZZO POSTALE - DESTINATARIO DIVERSO
+      ***************************************************************

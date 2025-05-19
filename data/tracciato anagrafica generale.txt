@@ -1,0 +1,71 @@
+    ********** c h i a v e
+              03 ACONTO2          PIC S9(5).    codice del conto (cliente/fornitore)
+      *******************
+
+              03 ATIPO2           PIC 9.           tipo conto 1=cliente    2=fornitore
+
+              03 araso2B          pic x(40).       ragione sociale
+              03 ARASO22B         PIC X(40).       estensione ragione sociuale
+              03 AIND2            PIC X(40).       indirizzo
+              03 ACAP2            PIC X(5).        cap
+              03 ACITTA2          PIC X(33).       citta'
+              03 APROV2B          PIC XX.          provincia
+              03 ANAZIONE2        PIC X(4).        nazione
+              03 ARIFER2          PIC 9.           no
+              03 AFIDO2           PIC S9(4)V9.     no
+ 
+              03 ANOTE2           PIC X(29).       note
+.
+      
+              03 AFISC2           PIC X(16).       codice fisale o partita iva se estero
+              03 APIVA2           PIC S9(11).      partita iva solo italia
+              03 ATIFAT2          PIC 99.          tipo fattura
+              03 AESEN2           PIC 99.          codice esenzione ( vedi tabella esenzioni )
+              03 ACODPAG2         PIC XX.          codice pagamento  ( vedi tabella pagamenti )
+              03 ASCONTO2B        PIC S999V999.    sconto merce 1
+              03 ASCONTOBIS2      PIC S99V9.       sconto merce 2 
+
+              
+              
+              03 ASPINC2          PIC 9.           1 = spese incasso ( addebito spese banarie r.b. )
+              03 ABOLLI2          PIC 9.           1 = spesde bolli ( addebito spese bolli )
+              03 ACODBANC-APP2    PIC S9(5).       codice banca ( se codificata )
+              03 ABANCA2          PIC X(40).       descrizione banca
+           
+                 
+              03 ACODBANC2        PIC S9(5).       no
+              
+              03 Aiban            pic x(27).       iban
+                  
+              03 ASWIFT2          PIC X(19).
+              
+                           
+              03 ARAGGR2          PIC 9.           1=raggruppamento ddt su fattura
+              03 AZONA2           PIC S999.        codice zona
+
+              03 AVALUTA2         PIC XX.          codice valuta ( non usato )
+              03 ANUMESP2         PIC X(7).        numero lettera d'intento ( vecchia versione )
+              03 ADATAESP2        PIC S9(6).       data lettera intento GGMMAA.
+              03 ANUMESP-PROT2    PIC X(7).        protocollo lettera intento ( vecchia versione )
+              03 ADATAESP-PROT2   PIC S9(6).       data protocollo lettera intento
+              
+              03 ACODAGCAPOZONA2  PIC S9(5).       cod. agente ( capozona )
+              03 APROV22B         PIC S99V9.       % provvigioni
+             
+              03 ACODAGE2         PIC S9(5).       cod. agente
+              03 APROV12          PIC S99V9.       % provvigioni
+              
+              
+              03 APORTO2          PIC 99.          codice porto ( vedi tabella )
+              03 ACODSPEDIZ2      PIC S9(5).       codice corriere ( se codificato )
+              03 ASPEDIZ2         PIC X(40).       ragione sociale corriere
+              
+              
+
+              03 aprotocollo2020  pic x(40).       numero lettera d'intento ( ultima da 2020 ) 
+      
+              03 AMARCA2          PIC X(15).      codice marca
+              03 ASCATOLA2        PIC X(15).      marcatura scatola
+              03 Aasdi            pic x(50).      codice SDI per fattura elettronica oppure PEC    
+              03 aistanza         pic x.           istanza 1/2/3  
+           
