@@ -174,3 +174,11 @@ cython_debug/
 .pypirc
 
 data/*
+
+node_modules/*
+
+# Ignora i file di ambiente ma non il resto
+backend/.env*
+!backend/.env.example
+backend/__pycache__/
+backend/*.db
