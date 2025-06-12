@@ -81,15 +81,72 @@ export const renderComponent = (componentData, key) => {
     return null;
   }
 
-  // Merge props and restProps (for backward compatibility)
-  const allProps = { ...restProps, ...props, key };
+  // Process props to handle nested components and special cases
+  const processProps = (props) => {
+    if (!props) return {};
+    
+    return Object.entries(props).reduce((acc, [key, value]) => {
+      // Skip undefined or null values
+      if (value === undefined || value === null) {
+        return acc;
+      }
+      
+      // Convert kebab-case props to camelCase for React
+      const reactKey = key.includes('-') ? key.replace(/-([a-z])/g, (g) => g[1].toUpperCase()) : key;
+      
+      // Handle nested objects that might be components (like leftIcon)
+      if (typeof value === 'object' && !Array.isArray(value) && value.type) {
+        acc[reactKey] = renderComponent(value, `${key}-${Date.now()}`);
+      } 
+      // Handle icon props specifically
+      else if ((key === 'leftIcon' || key === 'rightIcon' || key === 'icon') && 
+               value && typeof value === 'object' && value.component) {
+        const IconComponent = {
+          'ViewIcon': ViewIcon,
+          'ViewOffIcon': ViewOffIcon,
+          'CalendarIcon': CalendarIcon,
+          'TimeIcon': TimeIcon,
+          'ChatIcon': ChatIcon,
+          'SettingsIcon': SettingsIcon,
+          'BellIcon': BellIcon,
+          'SearchIcon': SearchIcon
+        }[value.component];
+        
+        if (IconComponent) {
+          acc[reactKey] = <IconComponent />;
+        } else {
+          acc[reactKey] = value;
+        }
+      } 
+      // Handle other props
+      else {
+        // Convert kebab-case CSS properties to camelCase for React
+        const processedValue = typeof value === 'object' && !Array.isArray(value) && value !== null
+          ? processProps(value) // Recursively process nested objects
+          : value;
+          
+        acc[reactKey] = processedValue;
+      }
+      
+      return acc;
+    }, {});
+  };
+
+  // Merge and process props
+  const allProps = { ...restProps, ...processProps(props), key };
   
   try {
     // Handle icon components
     if (type === 'icon' && componentData.component) {
       const IconComponent = {
         'ViewIcon': ViewIcon,
-        'ViewOffIcon': ViewOffIcon
+        'ViewOffIcon': ViewOffIcon,
+        'CalendarIcon': CalendarIcon,
+        'TimeIcon': TimeIcon,
+        'ChatIcon': ChatIcon,
+        'SettingsIcon': SettingsIcon,
+        'BellIcon': BellIcon,
+        'SearchIcon': SearchIcon
       }[componentData.component];
       
       if (!IconComponent) {
